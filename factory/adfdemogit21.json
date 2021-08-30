@@ -1,0 +1,9 @@
+{
+	"name": "adfdemogit21",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "320653e6-54ac-44c5-9979-61f48b70c9b3",
+		"tenantId": "d874e9db-4d6b-46a5-b6bd-a903a34e1c6a"
+	}
+}
