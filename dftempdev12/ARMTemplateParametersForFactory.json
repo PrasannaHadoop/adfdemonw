@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "dftempdev12"
+		},
+		"ls_adls_creportingdl_accountKey": {
+			"value": ""
+		},
+		"ls_blob_creportingsa_connectionString": {
+			"value": ""
+		},
+		"ls_adls_creportingdl_properties_typeProperties_url": {
+			"value": "https://creportingdl.dfs.core.windows.net"
+		},
+		"ls_http_opendata_ecdc_properties_typeProperties_url": {
+			"value": "https://github.com"
+		},
+		"trigger_cpy_properties_typeProperties_scope": {
+			"value": "/subscriptions/04359d4b-3995-454e-9dd5-88466e9aa26e/resourceGroups/dftemodev/providers/Microsoft.Storage/storageAccounts/creportingsa"
+		}
+	}
+}
