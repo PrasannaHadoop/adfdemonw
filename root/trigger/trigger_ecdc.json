@@ -11,7 +11,7 @@
 				},
 				"parameters": {
 					"rell_url_pm": "cloudboxacademy/covid19/raw/main/ecdc_data/cases_deaths.csv",
-					"sync_urll_pm": "cases_deaths.csv\n"
+					"sync_urll_pm": "cases_deaths.csv"
 				}
 			}
 		],
@@ -24,7 +24,8 @@
 				"timeZone": "UTC",
 				"schedule": {
 					"minutes": [
-						0
+						0,
+						5
 					],
 					"hours": [
 						16,
