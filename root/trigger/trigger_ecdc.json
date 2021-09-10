@@ -24,12 +24,11 @@
 				"timeZone": "UTC",
 				"schedule": {
 					"minutes": [
-						30,
-						40
+						0
 					],
 					"hours": [
-						22,
-						23
+						16,
+						17
 					]
 				}
 			}
