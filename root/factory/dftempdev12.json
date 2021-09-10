@@ -1,0 +1,9 @@
+{
+	"name": "dftempdev12",
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "625dca32-3dc6-42d9-85dd-829d00d46042",
+		"tenantId": "d874e9db-4d6b-46a5-b6bd-a903a34e1c6a"
+	}
+}
