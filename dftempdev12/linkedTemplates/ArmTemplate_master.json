@@ -33,7 +33,7 @@
 		},
 		"trigger_ecdc_properties_pl_ingest_cases_deaths_data_parameters_sync_urll_pm": {
 			"type": "string",
-			"defaultValue": "cases_deaths.csv\n"
+			"defaultValue": "cases_deaths.csv"
 		},
 		"containerUri": {
 			"type": "string",

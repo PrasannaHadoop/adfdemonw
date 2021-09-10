@@ -1,0 +1,57 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "dftempdev12"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger_ecdc')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pl_ingest_cases_deaths_data",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"rell_url_pm": "cloudboxacademy/covid19/raw/main/ecdc_data/cases_deaths.csv",
+							"sync_urll_pm": "cases_deaths.csv"
+						}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Day",
+						"interval": 1,
+						"startTime": "2021-09-10T16:51:00Z",
+						"timeZone": "UTC",
+						"schedule": {
+							"minutes": [
+								0,
+								5
+							],
+							"hours": [
+								16,
+								17
+							]
+						}
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
