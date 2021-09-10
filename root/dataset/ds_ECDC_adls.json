@@ -1,16 +1,24 @@
 {
-	"name": "ds_cases_deaths_adls",
+	"name": "ds_ECDC_adls",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adls_creportingdl",
 			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"sync_path_pm": {
+				"type": "string"
+			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "cases_d.csv",
+				"fileName": {
+					"value": "@dataset().sync_path_pm",
+					"type": "Expression"
+				},
 				"folderPath": "ECDC",
 				"fileSystem": "raw"
 			},

@@ -48,18 +48,38 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_http_cases_Deaths_raw",
-						"type": "DatasetReference"
+						"referenceName": "ds_http_ECDC_raw",
+						"type": "DatasetReference",
+						"parameters": {
+							"rel_path_pm": {
+								"value": "@pipeline().parameters.rell_url_pm",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_cases_deaths_adls",
-						"type": "DatasetReference"
+						"referenceName": "ds_ECDC_adls",
+						"type": "DatasetReference",
+						"parameters": {
+							"sync_path_pm": {
+								"value": "@pipeline().parameters.sync_urll_pm",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
 		],
+		"parameters": {
+			"rell_url_pm": {
+				"type": "string"
+			},
+			"sync_urll_pm": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"lastPublishTime": "2021-09-10T12:11:48Z"
 	},
