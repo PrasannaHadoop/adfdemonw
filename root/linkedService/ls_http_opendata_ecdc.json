@@ -3,7 +3,8 @@
 	"properties": {
 		"parameters": {
 			"src_BaseURL_pm": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": " "
 			}
 		},
 		"annotations": [],
