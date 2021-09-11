@@ -26,6 +26,18 @@
 		"trigger_cpy_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/04359d4b-3995-454e-9dd5-88466e9aa26e/resourceGroups/dftemodev/providers/Microsoft.Storage/storageAccounts/creportingsa"
+		},
+		"trigger_ecdc_properties_pl_ingest_cases_deaths_data_parameters_src_BaseURL_pl_pm": {
+			"type": "string",
+			"defaultValue": "cloudboxacademy/covid19/raw/main/ecdc_data/cases_deaths.csv"
+		},
+		"trigger_ecdc_properties_pl_ingest_cases_deaths_data_parameters_rel_url_pl_pm": {
+			"type": "string",
+			"defaultValue": "cases_deaths_.csv"
+		},
+		"trigger_ecdc_properties_pl_ingest_cases_deaths_data_parameters_syncFilePath_pl_pm": {
+			"type": "string",
+			"defaultValue": "https://github.com"
 		}
 	},
 	"variables": {
@@ -127,7 +139,12 @@
 				"linkedServiceName": {
 					"referenceName": "ls_http_opendata_ecdc",
 					"type": "LinkedServiceReference",
-					"parameters": {}
+					"parameters": {
+						"baseurl_ls_pm": {
+							"value": "@dataset().src_BaseURL_ds_pm",
+							"type": "Expression"
+						}
+					}
 				},
 				"parameters": {
 					"src_BaseURL_ds_pm": {
@@ -618,7 +635,11 @@
 							"referenceName": "pl_ingest_cases_deaths_data",
 							"type": "PipelineReference"
 						},
-						"parameters": {}
+						"parameters": {
+							"src_BaseURL_pl_pm": "[parameters('trigger_ecdc_properties_pl_ingest_cases_deaths_data_parameters_src_BaseURL_pl_pm')]",
+							"rel_url_pl_pm": "[parameters('trigger_ecdc_properties_pl_ingest_cases_deaths_data_parameters_rel_url_pl_pm')]",
+							"syncFilePath_pl_pm": "[parameters('trigger_ecdc_properties_pl_ingest_cases_deaths_data_parameters_syncFilePath_pl_pm')]"
+						}
 					}
 				],
 				"type": "ScheduleTrigger",
