@@ -19,21 +19,10 @@
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
-				"frequency": "Day",
+				"frequency": "Minute",
 				"interval": 1,
 				"startTime": "2021-09-10T16:51:00Z",
-				"timeZone": "UTC",
-				"schedule": {
-					"minutes": [
-						0,
-						5,
-						10
-					],
-					"hours": [
-						16,
-						17
-					]
-				}
+				"timeZone": "UTC"
 			}
 		}
 	}
