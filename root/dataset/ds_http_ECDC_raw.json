@@ -5,7 +5,7 @@
 			"referenceName": "ls_http_opendata_ecdc",
 			"type": "LinkedServiceReference",
 			"parameters": {
-				"src_BaseURL_pm": {
+				"baseurl_ls_pm": {
 					"value": "@dataset().src_BaseURL_ds_pm",
 					"type": "Expression"
 				}
