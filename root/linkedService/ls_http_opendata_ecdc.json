@@ -2,14 +2,14 @@
 	"name": "ls_http_opendata_ecdc",
 	"properties": {
 		"parameters": {
-			"src_BaseURL_pm": {
+			"baseurl_ls_pm": {
 				"type": "string"
 			}
 		},
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
-			"url": "@{linkedService().src_BaseURL_pm}",
+			"url": "@{linkedService().baseurl_ls_pm}",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
