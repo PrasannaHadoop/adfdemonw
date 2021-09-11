@@ -51,12 +51,12 @@
 						"referenceName": "ds_http_ECDC_raw",
 						"type": "DatasetReference",
 						"parameters": {
-							"rel_path_pm": {
-								"value": "@pipeline().parameters.rell_url_pm",
+							"src_BaseURL_ds_pm": {
+								"value": "@pipeline().parameters.src_BaseURL_pl_pm",
 								"type": "Expression"
 							},
-							"base url_ds_pm": {
-								"value": "@pipeline().parameters.src_Base_Url_pl_pm",
+							"rel_url_ds_pm": {
+								"value": "@pipeline().parameters.rel_url_pl_pm",
 								"type": "Expression"
 							}
 						}
@@ -67,8 +67,8 @@
 						"referenceName": "ds_ECDC_adls",
 						"type": "DatasetReference",
 						"parameters": {
-							"sync_path_pm": {
-								"value": "@pipeline().parameters.sync_urll_pm",
+							"syncFilePath_ds_pm": {
+								"value": "@pipeline().parameters.syncFilePath_pl_pm",
 								"type": "Expression"
 							}
 						}
@@ -77,13 +77,13 @@
 			}
 		],
 		"parameters": {
-			"rell_url_pm": {
+			"src_BaseURL_pl_pm": {
 				"type": "string"
 			},
-			"sync_urll_pm": {
+			"rel_url_pl_pm": {
 				"type": "string"
 			},
-			"src_Base_Url_pl_pm": {
+			"syncFilePath_pl_pm": {
 				"type": "string"
 			}
 		},

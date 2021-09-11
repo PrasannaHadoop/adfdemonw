@@ -6,16 +6,16 @@
 			"type": "LinkedServiceReference",
 			"parameters": {
 				"src_BaseURL_pm": {
-					"value": "@dataset().base url_ds_pm",
+					"value": "@dataset().src_BaseURL_ds_pm",
 					"type": "Expression"
 				}
 			}
 		},
 		"parameters": {
-			"rel_path_pm": {
+			"src_BaseURL_ds_pm": {
 				"type": "string"
 			},
-			"base url_ds_pm": {
+			"rel_url_ds_pm": {
 				"type": "string"
 			}
 		},
@@ -25,7 +25,7 @@
 			"location": {
 				"type": "HttpServerLocation",
 				"relativeUrl": {
-					"value": "@dataset().rel_path_pm",
+					"value": "@dataset().rel_url_ds_pm",
 					"type": "Expression"
 				}
 			},

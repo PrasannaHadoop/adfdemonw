@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"sync_path_pm": {
+			"syncFilePath_ds_pm": {
 				"type": "string"
 			}
 		},
@@ -16,7 +16,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@dataset().sync_path_pm",
+					"value": "@dataset().syncFilePath_ds_pm",
 					"type": "Expression"
 				},
 				"folderPath": "ECDC",
