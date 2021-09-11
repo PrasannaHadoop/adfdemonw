@@ -51,14 +51,8 @@
 						"referenceName": "ds_http_ECDC_raw",
 						"type": "DatasetReference",
 						"parameters": {
-							"rel_path_pm": {
-								"value": "@pipeline().parameters.rell_url_pm",
-								"type": "Expression"
-							},
-							"base url_ds_pm": {
-								"value": "@pipeline().parameters.src_Base_Url_pl_pm",
-								"type": "Expression"
-							}
+							"rel_path_pm": "cloudboxacademy/covid19/raw/main/ecdc_data/cases_deaths.csv",
+							"base url_ds_pm": "https://github.com"
 						}
 					}
 				],
@@ -67,10 +61,7 @@
 						"referenceName": "ds_ECDC_adls",
 						"type": "DatasetReference",
 						"parameters": {
-							"sync_path_pm": {
-								"value": "@pipeline().parameters.sync_urll_pm",
-								"type": "Expression"
-							}
+							"sync_path_pm": "cases_deaths.csv"
 						}
 					}
 				]
