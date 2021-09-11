@@ -21,19 +21,11 @@
 		},
 		"ls_http_opendata_ecdc_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://github.com"
+			"defaultValue": "@{linkedService().baseurl_ls_pm}"
 		},
 		"trigger_cpy_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/04359d4b-3995-454e-9dd5-88466e9aa26e/resourceGroups/dftemodev/providers/Microsoft.Storage/storageAccounts/creportingsa"
-		},
-		"trigger_ecdc_properties_pl_ingest_cases_deaths_data_parameters_rell_url_pm": {
-			"type": "string",
-			"defaultValue": "cloudboxacademy/covid19/raw/main/ecdc_data/cases_deaths.csv"
-		},
-		"trigger_ecdc_properties_pl_ingest_cases_deaths_data_parameters_sync_urll_pm": {
-			"type": "string",
-			"defaultValue": "cases_deaths.csv"
 		}
 	},
 	"variables": {
@@ -95,8 +87,12 @@
 								"referenceName": "ds_http_ECDC_raw",
 								"type": "DatasetReference",
 								"parameters": {
-									"rel_path_pm": {
-										"value": "@pipeline().parameters.rell_url_pm",
+									"src_BaseURL_ds_pm": {
+										"value": "@pipeline().parameters.src_BaseURL_pl_pm",
+										"type": "Expression"
+									},
+									"rel_url_ds_pm": {
+										"value": "@pipeline().parameters.rel_url_pl_pm",
 										"type": "Expression"
 									}
 								}
@@ -107,8 +103,8 @@
 								"referenceName": "ds_ECDC_adls",
 								"type": "DatasetReference",
 								"parameters": {
-									"sync_path_pm": {
-										"value": "@pipeline().parameters.sync_urll_pm",
+									"syncFilePath_ds_pm": {
+										"value": "@pipeline().parameters.syncFilePath_pl_pm",
 										"type": "Expression"
 									}
 								}
@@ -117,10 +113,13 @@
 					}
 				],
 				"parameters": {
-					"rell_url_pm": {
+					"src_BaseURL_pl_pm": {
 						"type": "string"
 					},
-					"sync_urll_pm": {
+					"rel_url_pl_pm": {
+						"type": "string"
+					},
+					"syncFilePath_pl_pm": {
 						"type": "string"
 					}
 				},
@@ -357,7 +356,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
-					"sync_path_pm": {
+					"syncFilePath_ds_pm": {
 						"type": "string"
 					}
 				},
@@ -367,7 +366,7 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"fileName": {
-							"value": "@dataset().sync_path_pm",
+							"value": "@dataset().syncFilePath_ds_pm",
 							"type": "Expression"
 						},
 						"folderPath": "ECDC",
@@ -391,10 +390,14 @@
 			"properties": {
 				"linkedServiceName": {
 					"referenceName": "ls_http_opendata_ecdc",
-					"type": "LinkedServiceReference"
+					"type": "LinkedServiceReference",
+					"parameters": {}
 				},
 				"parameters": {
-					"rel_path_pm": {
+					"src_BaseURL_ds_pm": {
+						"type": "string"
+					},
+					"rel_url_ds_pm": {
 						"type": "string"
 					}
 				},
@@ -404,7 +407,7 @@
 					"location": {
 						"type": "HttpServerLocation",
 						"relativeUrl": {
-							"value": "@dataset().rel_path_pm",
+							"value": "@dataset().rel_url_ds_pm",
 							"type": "Expression"
 						}
 					},
@@ -556,6 +559,11 @@
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"parameters": {
+					"baseurl_ls_pm": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "HttpServer",
 				"typeProperties": {
@@ -610,10 +618,7 @@
 							"referenceName": "pl_ingest_cases_deaths_data",
 							"type": "PipelineReference"
 						},
-						"parameters": {
-							"rell_url_pm": "[parameters('trigger_ecdc_properties_pl_ingest_cases_deaths_data_parameters_rell_url_pm')]",
-							"sync_urll_pm": "[parameters('trigger_ecdc_properties_pl_ingest_cases_deaths_data_parameters_sync_urll_pm')]"
-						}
+						"parameters": {}
 					}
 				],
 				"type": "ScheduleTrigger",

@@ -15,16 +15,10 @@
 			"value": "https://creportingdl.dfs.core.windows.net"
 		},
 		"ls_http_opendata_ecdc_properties_typeProperties_url": {
-			"value": "https://github.com"
+			"value": "@{linkedService().baseurl_ls_pm}"
 		},
 		"trigger_cpy_properties_typeProperties_scope": {
 			"value": "/subscriptions/04359d4b-3995-454e-9dd5-88466e9aa26e/resourceGroups/dftemodev/providers/Microsoft.Storage/storageAccounts/creportingsa"
-		},
-		"trigger_ecdc_properties_pl_ingest_cases_deaths_data_parameters_rell_url_pm": {
-			"value": "cloudboxacademy/covid19/raw/main/ecdc_data/cases_deaths.csv"
-		},
-		"trigger_ecdc_properties_pl_ingest_cases_deaths_data_parameters_sync_urll_pm": {
-			"value": "cases_deaths.csv"
 		}
 	}
 }
