@@ -3,18 +3,7 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
-		"pipelines": [
-			{
-				"pipelineReference": {
-					"referenceName": "pl_ingest_cases_deaths_data",
-					"type": "PipelineReference"
-				},
-				"parameters": {
-					"rell_url_pm": "cloudboxacademy/covid19/raw/main/ecdc_data/cases_deaths.csv",
-					"sync_urll_pm": "cases_deaths.csv"
-				}
-			}
-		],
+		"pipelines": [],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
